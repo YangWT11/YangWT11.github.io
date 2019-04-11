@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "dev":"npm run build && git push -f git@github.com:YangWT11/YangWT11.github.io.git master"
+    "dev":"git push -f git@github.com:YangWT11/YangWT11.github.io.git master"
   },
   "dependencies": {
     "core-js": "^2.6.5",
