@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "dev":"git push -f git@github.com:YangWT11/YangWT11.github.io.git master"
+    "dev": "git push -f git@github.com:YangWT11/YangWT11.github.io.git master"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -22,6 +22,8 @@
     "@vue/cli-plugin-pwa": "^3.5.0",
     "@vue/cli-plugin-typescript": "^3.5.0",
     "@vue/cli-service": "^3.5.0",
+    "html-loader": "^0.5.5",
+    "markdown-loader": "^5.0.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "typescript": "^3.2.1",
