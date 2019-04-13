@@ -1,7 +1,7 @@
 module.exports = {
-    publicPath: "/blog/",
-    outputDir: './docs',
-    assetsDir: "./",
+    indexPath: "../index.html",
+    assetsDir: "./dist",
+    publicPath:"./dist",
     configureWebpack: config => {
         config.module.rules.push({
             // 处理jquery
