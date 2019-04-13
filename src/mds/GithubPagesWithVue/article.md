@@ -25,9 +25,9 @@
 
 <img src="./pic3.png" width = "500" alt="图片名称" align=center style="display:block" />
 
-那么问题解决了吗，部署上git后发现，完全不行，``publicPath``虽然能将link的引用正确指向dist文件夹，然而publicPath决定着整个项目启动的根路径，它被设置为``'./dist'``后，项目的访问路径变成了``<username>.github.io/dist``。
+那么问题解决了吗，部署上git后发现，完全不行，``publicPath``虽然能将link的引用正确指向dist文件夹，然而``publicPath``决定着整个项目启动的根路径，它被设置为``'./dist'``后，项目的访问路径变成了``<username>.github.io/dist``。
 
-因此这里需要改变一下，打开``router.ts``(如果你们没选ts，就是``router.js``)，修改路由中的```base: process.env.BASE_URL```为```base:''```，这样做的原因是，publicPath已经被修改为``'./dist'``，然而GitHubPages支持访问``<username>.github.io``这个路由，无法访问``<username>.github.io/dist``这个路由，这样部署的话，完美解决)
+因此这里需要改变一下，打开``router.ts``(如果你们没选ts，就是``router.js``)，修改路由中的```base: process.env.BASE_URL```为```base:''```，这样做的原因是，publicPath已经被修改为``'./dist'``，然而GitHubPages支持访问``<username>.github.io``这个路由，无法访问``<username>.github.io/dist``这个路由，这样部署的话，完美解决！
 
 那么这么做是否没有瑕疵呢？有一点！由于选择的模式是history模式，因此当你跳转到其他路由时，页面没有刷新，动态加载组件，没有问题，然而如果在其他路由手动刷新页面，会提示404页面，这正是由于GitHubPages只支持``<username>.github.io``这个路由，因此我们将history模式改为hash模式，就完美解决。在``router.ts``文件中，将```mode:'history'```去掉即可，这样一来，就部署成功了！
 
@@ -73,7 +73,7 @@ module.exports = {
 ```
 
 <blockquote class='tip'>
- publicPath要与你仓库名一致，因为GithubPages现在给你的路由是<code>&lt;username&gt;.github.io/repository</code>
+ <code>publicPath</code>要与你仓库名一致，因为GithubPages现在给你的路由是<code>&lt;username&gt;.github.io/repository</code>
  </blockquote>
 
  <blockquote class='tip'>
@@ -84,7 +84,7 @@ module.exports = {
  <code>assetsDir</code>选择用<code>"./"</code>，这样能使路径静态资源相对于<code>outputDir</code>
  </blockquote>
 
-然后编译打包，直接上传部署即可，现在博客url变成了``<username>.github.io/repository``
+然后编译打包，直接上传部署即可，现在博客url变成了``<username>.github.io/blog``
 
 ## 总结
 在部署这个Vue应用的时候，遇到了很多问题，例如``Vue.config.js``中各项配置的意义，[如何在vue中嵌入md文件](https://segmentfault.com/q/1010000012829376)等。
@@ -92,39 +92,3 @@ module.exports = {
 部署完这个博客，写了这篇总结，发现自己有很多需要学习的地方，这篇博客不是完结，是学习的开始!
 
 >Be curious about everything. Never stop learning. Never stop growing.
-<style>
-blockquote{
-    padding: 0 1.5rem;
-    color: #4e4e4e;
-    font-size: 1rem;
-    border-left: 0.4rem solid #ddd;
-    line-height: 1.5;
-    font-family: "Inter","-apple-system,BlinkMacSystemFont","Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-}
-p{
-    line-height:1.7;
-    margin:1rem 0;
-}
-li{
-    line-height:1.7
-}
-code{
-    color: #476582;
-    padding: .25rem .5rem;
-    margin: 0;
-    font-size: .85em;
-    background-color: rgba(27,31,35,.05);
-    border-radius: 3px;
-    font-family: 'source-code-pro','Menlo','Monaco','Consolas','Courier New','monospace';
-}
-h1,h2,h3,h4,h5,h6{
-    border-bottom:0.1rem solid #eee;
-    padding-bottom:0.5rem;
-}
-.warn{
-    border-color:#e4e400;
-}
-.tip{
-    border-color:green;
-}
-</style>

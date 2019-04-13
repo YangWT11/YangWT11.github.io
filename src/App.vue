@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Guide></Guide>
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
@@ -7,6 +8,14 @@
     <router-view/>
   </div>
 </template>
+<script>
+import Guide from "./components/guide/Guide.vue";
+export default {
+  components: {
+    Guide
+  }
+};
+</script>
 
 <style lang="scss">
 #app {
