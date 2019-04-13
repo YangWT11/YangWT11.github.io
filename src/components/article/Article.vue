@@ -19,6 +19,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .article{
-  max-width: 60rem
+  max-width: 60rem;
+  margin: auto;
 }
 </style>

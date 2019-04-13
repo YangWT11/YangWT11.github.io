@@ -3,7 +3,6 @@
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
-      <br /><span>Be curious about everything. Never stop learning. Never stop growing.</span>
     </div>
     <router-view/>
   </div>

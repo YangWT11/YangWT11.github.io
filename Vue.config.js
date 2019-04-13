@@ -1,6 +1,6 @@
 module.exports = {
     indexPath: "../index.html",
-    publicPath:"./dist",
+    publicPath: process.env.NODE_ENV == "development" ? "" : "./dist",
     configureWebpack: config => {
         config.module.rules.push({
             // 处理jquery

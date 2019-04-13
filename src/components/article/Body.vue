@@ -2,7 +2,7 @@
   <div v-html="this.article" class="article-body"></div>
 </template>
 <script>
-import articleMd from "../../mds/0/article.md";
+import articleMd from "../../mds/GithubPagesWithVue/article.md";
 export default {
   data() {
     return {
