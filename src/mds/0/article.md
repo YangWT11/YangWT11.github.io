@@ -16,11 +16,10 @@
 <img src="./pic0.png" width = "500" alt="图片名称" align=center style="display:block" /><br>
 部署后发现打开后一片空白，原来是资源文件没有正确被引用，打开index.html看一下
 <img src="./pic1.png" width = "500" alt="图片名称" align=center style="display:block" /><br>
-由于打包后的静态资源全在dist中，因此index.html无法正确引用这些css和script，再次修改Vue.config.js，```assetsDir='./dist'```，直接本地打开index.html看下
-<img src="./pic2.png" width = "500" alt="图片名称" align=center style="display:block" /><br>
-打包生成的css和script全部加上了dist前缀，这没有问题了，然而还有一些link依然没有加上dist前缀，暂时没搞懂这些东西是啥，目测是由于当初使用vue-cli时选择了PWA，才会自带这些，如果要让这些东西也加上dist，很简单，修改Vue.config.js，```publicPath='./dist'```，再次编译打开index.html打开
+由于打包后的静态资源全在dist中，因此index.html无法正确引用这些css和script，再次修改Vue.config.js，```publicPath='./dist'```，直接本地打开index.html看下
 <img src="./pic3.png" width = "500" alt="图片名称" align=center style="display:block" /><br>
-那么问题解决了吗，部署上git后发现，完全不行，**publicPath**虽然能将link的引用正确指向dist文件夹，然而它也改变了
+那么问题解决了吗，部署上git后发现，完全不行，**publicPath**虽然能将link的引用正确指向dist文件夹，然而它也改变了，因此这里需要改变一下，打开router.ts(如果你们没选ts，就是router.js)，修改路由中的```base: process.env.BASE_URL```为```base:''```，这样做的原因是，publicPath已经被修改为'./dist'，然而GitHubPages支持访问\<username\>.github.io这个路由，无法访问\<username\>.github.io/dist这个路由，这样部署的话，完美解决)<br>
+那么这么做是否没有瑕疵呢？有一点！由于选择的模式是history模式，因此当你跳转到其他路由时，页面没有刷新，动态加载组件，没有问题，然而如果在其他路由手动刷新页面，会提示404页面，这正是由于GitHubPages只支持\<username\>.github.io这个路由，因此我们将history模式改为hash模式，就完美解决。在router.ts文件中，将```mode:'history'```去掉即可，这样一来，就部署成功了！
 2. 将你**master**分支上**docs**文件夹里的静态文件全部渲染出来
 <style>
 blockquote{

@@ -1,6 +1,5 @@
 module.exports = {
     indexPath: "../index.html",
-    // assetsDir: "./dist",
     publicPath:"./dist",
     configureWebpack: config => {
         config.module.rules.push({
