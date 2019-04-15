@@ -1,13 +1,18 @@
 <template>
   <div class="guide">
     <Header></Header>
-    <Body class="guide-body"></Body>
+    <Body class="guide-body" :title="this.title"></Body>
   </div>
 </template>
 <script>
 import Header from "./Header.vue";
 import Body from "./Body.vue";
 export default {
+  data() {
+    return {
+      title: "Article"
+    };
+  },
   components: {
     Header,
     Body

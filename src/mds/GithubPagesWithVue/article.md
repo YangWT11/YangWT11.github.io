@@ -21,7 +21,7 @@
 
 <img src="./pic1.png" width = "500" alt="图片名称" align=center style="display:block" />
 
-由于打包后的静态资源全在dist中，因此index.html无法正确引用这些css和script，再次修改``Vue.config.js``，添加一行```publicPath='./dist'```，直接本地打开``index.html``看下
+由于打包后的静态资源全在dist中，因此``index.html``无法正确引用这些css和script，再次修改``Vue.config.js``，添加一行```publicPath='./dist'```，直接本地打开``index.html``看下
 
 <img src="./pic3.png" width = "500" alt="图片名称" align=center style="display:block" />
 

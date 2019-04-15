@@ -1,58 +1,34 @@
 <template>
-  <div>
-    <div class="guide-catalog">
-      <div class="guide-icon">
-        <span>{{this.num}}</span>
-      </div>
-      <span>{{this.title}}</span>
-      <img
-        class="guide-arrow"
-        :class="{'expand':this.isExpand}"
-        src="../../assets/guide/arrow.svg"
-        v-on:click="expand()"
-      >
+  <div class="guide-catalog" :class="{active:this.actived}" v-on:click="select()">
+    <div class="guide-icon">
+      <span>{{this.num}}</span>
     </div>
-    <Item :hidden="!isExpand" v-for="item in this.articles" :key="'article'+item" :title="item"></Item>
+    <span>{{this.name}}</span>
+    <img class="guide-arrow" src="../../assets/img/guide/arrow.svg">
   </div>
 </template>
 <script>
-import Item from "./Item.vue";
 export default {
-  async beforeMount() {
-    let a = await import("../../mds/config.json");
-    this.articles = a.default[this.title];
-  },
   props: {
-    title: String
-  },
-  data() {
-    return {
-      isExpand: true,
-      articles: []
-    };
-  },
-  computed: {
-    num: function() {
-      return this.articles.length;
-    }
+    name: String,
+    num: Number,
+    actived: Boolean
   },
   methods: {
-    expand: function() {
-      this.isExpand = !this.isExpand;
+    select: function() {
+      this.$store.commit("guide/changeSelectedCatalog", this.name);
     }
-  },
-  components: {
-    Item
   }
 };
 </script>
 <style lang="scss" scoped>
 .guide-catalog {
-  margin: 1rem 0;
+  padding: 0.5rem 1rem;
   text-align: left;
   align-items: center;
   color: #fff;
   display: flex;
+  opacity: 0.6;
   cursor: pointer;
   .guide-icon {
     border-radius: 1rem;
@@ -71,11 +47,13 @@ export default {
     position: absolute;
     right: 1.8rem;
     width: 1.8rem;
-  }
-  .expand {
     transform: rotateZ(-90deg);
   }
 }
-.guide-article {
+.guide-arrow :hover {
+  opacity: 1;
+}
+.active {
+  opacity: 1;
 }
 </style>

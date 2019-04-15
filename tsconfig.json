@@ -31,7 +31,7 @@
     "src/**/*.tsx",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/router.ts"
+    "src/router.ts",
   ],
   "exclude": [
     "node_modules",

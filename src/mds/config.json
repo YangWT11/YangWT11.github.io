@@ -1,10 +1,30 @@
 {
-    "JavaScript": [],
-    "Vue": [],
-    "Webpack": [],
-    "Github": [
-        "GithubPagesWithVue"
-    ],
-    "Css": [],
-    "Algorithm": []
+    "Article": [
+        {
+            "name": "JavaScript",
+            "articles": []
+        },
+        {
+            "name": "Vue",
+            "articles": []
+        },
+        {
+            "name": "Webpack",
+            "articles": []
+        },
+        {
+            "name": "Github",
+            "articles": [
+                "GithubPagesWithVue"
+            ]
+        },
+        {
+            "name": "Css",
+            "articles": []
+        },
+        {
+            "name": "Algorithm",
+            "articles": []
+        }
+    ]
 }

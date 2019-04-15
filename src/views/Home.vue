@@ -1,14 +1,13 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Article></Article>
   </div>
 </template>
 <script>
-import HelloWorld from "../components/HelloWorld.vue";
+import Article from "../components/article/Article.vue";
 export default {
   components: {
-    HelloWorld
+    Article
   }
 };
 </script>
