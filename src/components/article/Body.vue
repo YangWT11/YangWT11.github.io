@@ -7,20 +7,13 @@ export default {
     name: String
   },
   async beforeMount() {
-    let a = await import("../../mds/GithubPagesWithVue/article.md");
+    let a = await import("../../mds/" + this.name + "/article.md");
     this.article = a.default;
   },
   data() {
     return {
       article: null
     };
-  },
-  watch: {
-    name: (newVal, oldVal) => {
-      if (newVal !== oldVal) {
-        console.log(import("../../mds/GithubPagesWithVue/article.md"));
-      }
-    }
   }
 };
 </script>

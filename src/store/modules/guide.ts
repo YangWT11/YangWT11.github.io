@@ -29,6 +29,9 @@ const getters = {
             }
         })
     },
+    getArticleInfo: (state: any) => (catalog: String, fileName: String) => {
+        return state.catalogs['Article'].find((item: any) => item.name.toLowerCase() == catalog)['articles'].find((item: any) => item.fileName == fileName)
+    },
     searchByCatalog: (state: any) => (name: String) => {
         return state.catalogs[state.selectedTitle].filter((catalog: any) => {
             return catalog.name.includes(name)

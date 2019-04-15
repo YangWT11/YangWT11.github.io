@@ -1,16 +1,19 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
-
+import Catalog from './views/Catalog.vue'
+import Article from './views/Article.vue'
 Vue.use(Router);
 export default new Router({
   mode: 'hash',
   base: process.env.NODE_ENV === 'development' ? '' : './dist',
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home,
-    },
-  ],
+  routes: [{
+    path: '/catalogs/:title',
+    name: 'catalogs',
+    component: Catalog,
+  }, {
+    path: '/article/:catalog/:file',
+    name: 'article',
+    component: Article,
+  }]
 });

@@ -6,7 +6,18 @@
         },
         {
             "name": "Vue",
-            "articles": []
+            "articles": [
+                {
+                    "fileName": "vuexFirst",
+                    "title": "初体验！用Vuex进行状态管理",
+                    "labels": [
+                        {
+                            "name": "vue",
+                            "color": "red"
+                        }
+                    ]
+                }
+            ]
         },
         {
             "name": "Webpack",
@@ -15,7 +26,20 @@
         {
             "name": "Github",
             "articles": [
-                "GithubPagesWithVue"
+                {
+                    "fileName": "githubPagesWithVue",
+                    "title": "起步！用GitHub pages & Vue搭建自己的博客",
+                    "labels": [
+                        {
+                            "name": "git",
+                            "color": "#00b306"
+                        },
+                        {
+                            "name": "vue",
+                            "color": "red"
+                        }
+                    ]
+                }
             ]
         },
         {
