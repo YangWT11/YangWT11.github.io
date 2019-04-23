@@ -6,7 +6,8 @@
     "linterOptions": {
         "exclude": [
             "node_modules/**",
-            "src/**/*.vue"
+            "src/**/*.vue",
+            "src/store/**/*.ts"
         ]
     },
     "rules": {

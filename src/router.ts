@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
 import Catalog from './views/Catalog.vue'
 import Article from './views/Article.vue'
 Vue.use(Router);

@@ -15,33 +15,30 @@
 
 因此我个人第一次尝试，就是修改``Vue.config.js``,添加一行``indexPath='../index.html'``，这样做打包后的目录如下<br>
 
-<img src="./pic0.png" width = "500" alt="图片名称" align=center style="display:block" />
+<img src="./pic0.png" width = "80%" alt="图片名称" align=center style="display:block" />
 
 部署后发现打开后一片空白，原来是资源文件没有正确被引用，打开``index.html``看一下<br>
 
-<img src="./pic1.png" width = "500" alt="图片名称" align=center style="display:block" />
+<img src="./pic1.png" width = "80%" alt="图片名称" align=center style="display:block" />
 
 由于打包后的静态资源全在dist中，因此``index.html``无法正确引用这些css和script，再次修改``Vue.config.js``，添加一行```publicPath='./dist'```，直接本地打开``index.html``看下
 
-<img src="./pic3.png" width = "500" alt="图片名称" align=center style="display:block" />
+<img src="./pic3.png" width = "80%" alt="图片名称" align=center style="display:block" />
 
 那么问题解决了吗，部署上git后发现，完全不行，``publicPath``虽然能将link的引用正确指向dist文件夹，然而``publicPath``决定着整个项目启动的根路径，它被设置为``'./dist'``后，项目的访问路径变成了``<username>.github.io/dist``。
 
-因此这里需要改变一下，打开``router.ts``(如果你们没选ts，就是``router.js``)，修改路由中的```base: process.env.BASE_URL```为```base:''```，这样做的原因是，publicPath已经被修改为``'./dist'``，然而GitHubPages支持访问``<username>.github.io``这个路由，无法访问``<username>.github.io/dist``这个路由，这样部署的话，完美解决！
+因此这里需要改变一下，打开``router.ts``(如果你们没选ts，就是``router.js``)，修改路由中的```base: process.env.BASE_URL```为```base:''```，这样做的原因是，`publicPath`已经被修改为``'./dist'``，然而GitHubPages支持访问``<username>.github.io``这个路由，无法访问``<username>.github.io/dist``这个路由，这样部署的话，完美解决！
 
-那么这么做是否没有瑕疵呢？有一点！由于选择的模式是history模式，因此当你跳转到其他路由时，页面没有刷新，动态加载组件，没有问题，然而如果在其他路由手动刷新页面，会提示404页面，这正是由于GitHubPages只支持``<username>.github.io``这个路由，因此我们将history模式改为hash模式，就完美解决。在``router.ts``文件中，将```mode:'history'```去掉即可，这样一来，就部署成功了！
+那么这么做是否没有瑕疵呢？有一点！由于选择的模式是history模式，因此当你跳转到其他路由时，页面没有刷新，动态加载组件，没有问题。然而如果在其他路由手动刷新页面，会提示404页面，这正是由于GitHubPages只支持``<username>.github.io``这个路由，因此我们将history模式改为hash模式，就完美解决。在``router.ts``文件中，将```mode:'history'```去掉即可，这样一来，就部署成功了！
 
-最后的``Vue.config.js``如下
-```js
+最后的`Vue.config.js`如下
+
+```
 module.exports = {
-
     indexPath: "../index.html",
-
     publicPath: process.env.NODE_ENV == "development" ? "" : "./dist"
-    
 }
 ```
-
 
 <blockquote class='tip'>
  由于在本地开发时，base和publicPath不一致，会导致访问错误，因此建议在<code>Vue.config.js</code>和<code>router.ts</code>中，将publicPath和base均改成<code>process.env.NODE_ENV == "development" ? "" : "./dist"</code>，这样在本地和服务器上均能正常运行
@@ -62,13 +59,9 @@ module.exports = {
 因此这里需要做的是，将你的仓库名更改一下，不要按照``<username>.github.io``这种模式即可，我选择改成``blog``，然后按照文档，打开设置，在GithubPages中，选择``master branch/docs folder``选项，然后我们的打包方式就需要做一个小小的改变，``Vue.config.js``如下
 ```js
 module.exports = {
-
     publicPath: "/blog/",
-
     outputDir: './docs',
-
     assetsDir: "./",
-
 }
 ```
 

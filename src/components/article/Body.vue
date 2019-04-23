@@ -40,12 +40,54 @@ export default {
   /deep/ code {
     color: #476582;
     padding: 0.25rem 0.5rem;
+    background-color: rgba(27, 31, 35, 0.05);
     margin: 0;
     font-size: 0.85em;
-    background-color: rgba(27, 31, 35, 0.05);
     border-radius: 3px;
     font-family: "source-code-pro", "Menlo", "Monaco", "Consolas", "Courier New",
       "monospace";
+  }
+  /deep/ pre {
+    background-color: #282c34;
+    border-radius: 5px;
+    padding: 20px;
+    code {
+      color: #fff;
+      padding: 0;
+      margin: 0;
+      font-size: 0.85em;
+      border-radius: 3px;
+      font-family: "source-code-pro", "Menlo", "Monaco", "Consolas",
+        "Courier New", "monospace";
+      .hljs-keyword,
+      .hljs-built_in {
+        color: #cc99cd;
+      }
+      .hljs-attr {
+        color: #74e3e2;
+      }
+      .hljs-comment {
+        color: #999;
+      }
+      .hljs-string {
+        color: #7ec699;
+      }
+      .hljs-operator {
+        color: #67cdcc;
+      }
+      .hljs-number {
+        color: #f08d49;
+      }
+      .hljs-function {
+        color: #67cdcc;
+        .hljs-keyword {
+          color: #f08d49;
+        }
+        .hljs-params {
+          color: #ffff;
+        }
+      }
+    }
   }
   /deep/ h1,
   /deep/ h2,

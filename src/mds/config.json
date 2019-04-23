@@ -8,7 +8,7 @@
             "name": "Vue",
             "articles": [
                 {
-                    "fileName": "vuexFirst",
+                    "fileName": "headFirstInVuex",
                     "title": "初体验！用Vuex进行状态管理",
                     "labels": [
                         {
