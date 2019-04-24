@@ -10,7 +10,7 @@
                 {
                     "fileName": "headFirstInVuex",
                     "title": "初体验！用Vuex进行状态管理",
-                    "labels": [
+                    "tags": [
                         {
                             "name": "vue",
                             "color": "red"
@@ -29,7 +29,7 @@
                 {
                     "fileName": "githubPagesWithVue",
                     "title": "起步！用GitHub pages & Vue搭建自己的博客",
-                    "labels": [
+                    "tags": [
                         {
                             "name": "git",
                             "color": "#00b306"

@@ -2,18 +2,18 @@
 
 const state = {
     selectedTitle: "Article",
-    selectedCatalog: null,
-    catalogs: require("../../mds/config.json"),
-    searchText: null,
+    selectedTheme: null,
+    articles: require("../../mds/config.json"),
+    searchText: null
 }
 
 const mutations = {
-    changeSelectedCatalog(state: any, targetCatalog: any) {
-        if (state.selectedCatalog != targetCatalog) {
-            state.selectedCatalog = targetCatalog;
+    changeSelectedTheme: (state: any, targetTheme: any) => {
+        if (state.selectedTheme != targetTheme) {
+            state.selectedTheme = targetTheme;
         }
     },
-    setSearchText(state: any, value: String) {
+    setSearchText: (state: any, value: String) => {
         if (state.searchText !== value) {
             state.searchText = value;
         }
@@ -21,20 +21,20 @@ const mutations = {
 }
 
 const getters = {
-    getSecondCatalogs: (state: any) => {
-        return state.catalogs[state.selectedTitle].map((catalog: any) => {
+    getArticles: (state: any) => {
+        return state.articles[state.selectedTitle].map((theme: any) => {
             return {
-                ...catalog,
-                actived: catalog.name == state.selectedCatalog
+                ...theme,
+                actived: theme.name == state.selectedTheme
             }
         })
     },
-    getArticleInfo: (state: any) => (catalog: String, fileName: String) => {
-        return state.catalogs['Article'].find((item: any) => item.name.toLowerCase() == catalog)['articles'].find((item: any) => item.fileName == fileName)
+    getArticleInfo: (state: any) => (theme: String, fileName: String) => {
+        return state.articles['Article'].find((item: any) => item.name.toLowerCase() == theme)['articles'].find((item: any) => item.fileName == fileName)
     },
-    searchByCatalog: (state: any) => (name: String) => {
-        return state.catalogs[state.selectedTitle].filter((catalog: any) => {
-            return catalog.name.includes(name)
+    searchByTheme: (state: any) => (name: String) => {
+        return state.articles[state.selectedTitle].filter((theme: any) => {
+            return theme.name.includes(name)
         })
     }
 }

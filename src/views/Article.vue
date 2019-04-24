@@ -1,6 +1,6 @@
 <template>
   <div class="article">
-    <Header :title="this.title" :labels="this.labels"></Header>
+    <Header :title="this.title" :tags="this.tags"></Header>
     <Body :name="this.name"></Body>
   </div>
 </template>
@@ -11,21 +11,21 @@ export default {
   data() {
     return {
       title: null,
-      labels: [],
+      tags: [],
       name: null
     };
   },
   async beforeMount() {
     let file = this.$store.getters["guide/getArticleInfo"](
-      this.$route.params.catalog,
+      this.$route.params.theme,
       this.$route.params.file
     );
     if (file) {
       this.name = file.fileName;
       this.title = file.title;
-      this.labels = file.labels;
-    }else{
-      console.log('找不到文件')
+      this.tags = file.tags;
+    } else {
+      console.log("找不到文件");
     }
   },
   components: {

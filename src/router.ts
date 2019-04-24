@@ -7,11 +7,11 @@ export default new Router({
   mode: 'hash',
   base: process.env.NODE_ENV === 'development' ? '' : './dist',
   routes: [{
-    path: '/catalogs/:title',
-    name: 'catalogs',
+    path: '/themes/:title',
+    name: 'themes',
     component: Catalog,
   }, {
-    path: '/article/:catalog/:file',
+    path: '/article/:theme/:file',
     name: 'article',
     component: Article,
   }]

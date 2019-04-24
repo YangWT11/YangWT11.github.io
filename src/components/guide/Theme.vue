@@ -1,5 +1,5 @@
 <template>
-  <div class="guide-catalog" :class="{active:this.actived}" v-on:click="select()">
+  <div class="guide-theme" :class="{active:this.actived}" v-on:click="select()">
     <div class="guide-icon">
       <span>{{this.num}}</span>
     </div>
@@ -16,13 +16,13 @@ export default {
   },
   methods: {
     select: function() {
-      this.$store.commit("guide/changeSelectedCatalog", this.name);
+      this.$store.commit("guide/changeSelectedTheme", this.name);
     }
   }
 };
 </script>
 <style lang="scss" scoped>
-.guide-catalog {
+.guide-theme {
   padding: 0.5rem 1rem;
   text-align: left;
   align-items: center;

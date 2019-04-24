@@ -1,27 +1,27 @@
 <template>
   <div>
-    <Catalog
-      v-for="(catalog) in this.list"
-      :key="'guide-catalog-'+catalog.name"
-      :num="catalog.articles.length"
-      :name="catalog.name"
-      :actived="catalog.actived"
-    ></Catalog>
+    <Theme
+      v-for="(theme) in this.list"
+      :key="'guide-theme-'+theme.name"
+      :num="theme.articles.length"
+      :name="theme.name"
+      :actived="theme.actived"
+    ></Theme>
   </div>
 </template>
 <script>
-import Catalog from "./Catalog.vue";
+import Theme from "./Theme.vue";
 export default {
   props: {
     title: String
   },
   computed: {
     list() {
-      return this.$store.getters["guide/getSecondCatalogs"];
+      return this.$store.getters["guide/getArticles"];
     }
   },
   components: {
-    Catalog
+    Theme
   }
 };
 </script>

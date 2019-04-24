@@ -39,9 +39,9 @@ export default {
   }
   /deep/ code {
     color: #476582;
-    padding: 0.25rem 0.5rem;
+    padding: 0 0.25rem;
     background-color: rgba(27, 31, 35, 0.05);
-    margin: 0;
+    margin: 0 0.25rem;
     font-size: 0.85em;
     border-radius: 3px;
     font-family: "source-code-pro", "Menlo", "Monaco", "Consolas", "Courier New",
@@ -50,7 +50,8 @@ export default {
   /deep/ pre {
     background-color: #282c34;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px 20px;
+    line-height: 1.4;
     code {
       color: #fff;
       padding: 0;

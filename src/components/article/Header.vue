@@ -1,24 +1,24 @@
 <template>
   <div class="article-title">
     <h1>{{title}}</h1>
-    <Label v-for="label in labels" :key="label.name" :name="label.name" :color="label.color"></Label>
+    <Tag v-for="tag in tags" :key="tag.name" :name="tag.name" :color="tag.color"></Tag>
   </div>
 </template>
 <script>
-import Label from "./Label.vue";
+import Tag from "./Tag.vue";
 export default {
   props: {
     title: {
       default: "type",
       type: String
     },
-    labels: {
+    tags: {
       default: [],
       type: Array
     }
   },
   components: {
-    Label
+    Tag
   }
 };
 </script>

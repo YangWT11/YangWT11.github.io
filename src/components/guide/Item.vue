@@ -6,8 +6,7 @@
 <script>
 export default {
   props: {
-    title: String,
-    labels: Array
+    title: String
   }
 };
 </script>
