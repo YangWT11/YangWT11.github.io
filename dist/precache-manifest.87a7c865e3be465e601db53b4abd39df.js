@@ -20,11 +20,11 @@ self.__precacheManifest = [
     "url": "dist/js/chunk-2d22d5fa.1a725052.js"
   },
   {
-    "revision": "00296ebfc8927e798222",
-    "url": "dist/js/app.837f98a0.js"
+    "revision": "b313532b09d1ee66a5d3",
+    "url": "dist/js/app.b7a94aea.js"
   },
   {
-    "revision": "2e8241df4860271b5adc402fa4a6d229",
+    "revision": "137da8f41af58726739b53924efadfdd",
     "url": "dist/index.html"
   },
   {
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "dist/img/arrow.b6ea96a8.svg"
   },
   {
-    "revision": "00296ebfc8927e798222",
-    "url": "dist/css/app.764ba3dd.css"
+    "revision": "b313532b09d1ee66a5d3",
+    "url": "dist/css/app.6044d80c.css"
   }
 ];
